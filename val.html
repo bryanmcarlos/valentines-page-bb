@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url('IMG_4167.jpg'), url('IMG_7579.jpg'), url('IMG_8025.jpg');
+            background-size: cover;
+            background-position: center;
+            animation: backgroundChange 15s infinite;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: white;
+        }
+        @keyframes backgroundChange {
+            0% { background-image: url('IMG_4167.jpg'); }
+            33% { background-image: url('IMG_7579.jpg'); }
+            66% { background-image: url('IMG_8025.jpg'); }
+            100% { background-image: url('IMG_4167.jpg'); }
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            font-size: 2.5em;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .yes {
+            background: #28a745;
+            color: white;
+        }
+        .no {
+            background: #dc3545;
+            color: white;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Will You Be My Valentine, bb? 💖</h1>
+        <div class="buttons">
+            <button class="yes" onclick="confirmYes()">Yes</button>
+            <button class="no" onmouseover="moveButton()">No</button>
+        </div>
+        <p id="message" style="display: none; font-size: 3.5em; margin-top: 20px;">Yehey!! I love you sooo much bb! 💕</p>
+    </div>
+
+    <script>
+        function confirmYes() {
+            let confirmation = confirm("Are you sure, bb?");
+            if (confirmation) {
+                document.getElementById('message').style.display = 'block';
+            }
+        }
+        function moveButton() {
+            let button = document.querySelector('.no');
+            let x = Math.random() * (window.innerWidth - 100);
+            let y = Math.random() * (window.innerHeight - 100);
+            button.style.position = 'absolute';
+            button.style.left = `${x}px`;
+            button.style.top = `${y}px`;
+        }
+    </script>
+</body>
+</html>
